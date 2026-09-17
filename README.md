@@ -73,7 +73,7 @@ This project directly supports Rwanda's national development goals:
 
 **SDG 8**: Decent Work and Economic Growth, The business tier supports small businesses and employers in making sound budgeting decisions grounded in real Cost trends  which support more stable and sustainable business operations and wage decions. 
 
-**SDG 10**: Reduced Inequalities help to expose the unequal impacts, supporting more targeted, equity-aware policy response.
+**SDG 10**: Reduced Inequalities help to expose the unequal impacts, supporting more targeted, equity-aware policy responses.
 
 ## Languages
 The platform is available in both **English** and **Kinyarwanda** with plain, everyday language throughout. 
