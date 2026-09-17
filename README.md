@@ -53,7 +53,7 @@ NISR website: _https://microdata.statistics.gov.rw/index.php/catalog_
 
 -Consumer Price Index (CPI) Monthly: Powers all inflation calculations 
 
-- NISR EICV7 Household Survey (2023–2024): District spending basket weights
+-NISR EICV7 Household Survey (2023–2024): District spending basket weights
 
 The platform auto-refreshes every month when NISR releases new CPI data.
 So, it stays useful long after the hackathon ends.
