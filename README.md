@@ -1,4 +1,4 @@
-# 🇷🇼 Rwanda Cost-of-Living Navigator
+# Rwanda Cost-of-Living Navigator
 
 > *"How much is inflation really costing me this month?"*
 > This platform answers that question — personally, clearly, and in real time.
