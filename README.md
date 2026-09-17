@@ -27,7 +27,9 @@ How your situation compares to other households like yours
 ### Who It Is Built For
 
 Households & individuals: A personal inflation calculator based on their own spending
+
 Small business owners: Cost pressure trends to guide budgeting decisions
+
 Government & policy teams: A district-level pressure index to target social protection
 
 
@@ -47,9 +49,10 @@ showing where cost-of-living pressure is highest and which income groups are mos
 
 
 ### Data Sources
-NISR website: _https://microdata.statistics.gov.rw/index.php/catalog
-_
+NISR website: _https://microdata.statistics.gov.rw/index.php/catalog_
+
 -Consumer Price Index (CPI) Monthly: Powers all inflation calculations 
+
 - NISR EICV7 Household Survey (2023–2024): District spending basket weights
 
 The platform auto-refreshes every month when NISR releases new CPI data.
@@ -63,9 +66,13 @@ Every forecast is clearly marked as a model estimate, not a confirmed local pric
 This project directly supports Rwanda's national development goals:
 
 **NST2**: Evidence-based policy and financial inclusion by surfacing where the cost of Living pressure is highest. it indirectly supports financial inclusion planning because areas under high pressure are often the same areas needing better access to savings and credit.
+
 **Vision 2050**: Inclusive growth and data-driven governance as Vision 20250 pushes Rwanda towards a data driven, digitally enabled economy. This platform is a literal example of that, where public Statistics  converstes into live digital tool usable by citizens, business ans Governmentm rather than staying static reports.
+
 **SDG 1**: No Poverty, through estimating the cost of living pressure at District level, Government tier heklp to identify where households are most at risk of inflation pushing them into poverty. directly supporting more targeted poverty reduction interventions and social Protection.
+
 **SDG 8**: Decent Work and Economic Growth, The business tier supports small businesses and employers in making sound budgeting decisions grounded in real Cost trends  which support more stable and sustainable business operations and wage decions. 
+
 **SDG 10**: Reduced Inequalities help to expose the unequal impacts, supporting more targeted, equity-aware policy response.
 
 ## Languages
