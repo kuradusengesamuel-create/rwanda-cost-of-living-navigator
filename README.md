@@ -26,9 +26,9 @@ How your situation compares to other households like yours
 
 ### Who It Is Built For
 
--Households & individuals: A personal inflation calculator based on their own spending
--Small business owners: Cost pressure trends to guide budgeting decisions
--Government & policy teams: A district-level pressure index to target social protection
+Households & individuals: A personal inflation calculator based on their own spending
+Small business owners: Cost pressure trends to guide budgeting decisions
+Government & policy teams: A district-level pressure index to target social protection
 
 
 ### Three Tiers, One Platform
