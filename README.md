@@ -2,6 +2,7 @@
 
 >*"How much is inflation really costing me this month?"*
 >This platform answers that question personally, clearly, and in real time.
+>###### _The platform auto-refreshes every month when NISR releases new CPI data. So, it stays useful long after the hackathon ends._
 ---
 
 ### The Problem
@@ -49,14 +50,20 @@ showing where cost-of-living pressure is highest and which income groups are mos
 
 
 ### Data Sources
-NISR website: _https://microdata.statistics.gov.rw/index.php/catalog_
+NISR website: 
 
--Consumer Price Index (CPI) Monthly: Powers all inflation calculations 
-
+##### NISR EICV7 Household Survey (2023-2024)
+- Download from: _https://microdata.statistics.gov.rw/index.php/catalog_
+- Free registration required
+- Files used: CS_S01_S5_S7_Household.dta, CS_S8A1_Expenditure.dta,
+  CS_S8A2_Expenditure.dta, CS_S8A3_Expenditure.dta,
+  CS_S8B_Food_Expenditure_Consumption.dta
 -NISR EICV7 Household Survey (2023–2024): District spending basket weights
-
-The platform auto-refreshes every month when NISR releases new CPI data.
-So, it stays useful long after the hackathon ends.
+##### NISR CPI Time Series
+- Download from: https://statistics.gov.rw/statistical-publications/price-indices-cpi-ppi/consumer-price-index-cpi-august-2026
+- File: CPI_time_series_August 2026.xls
+- No registration required
+-Consumer Price Index (CPI) Monthly: Powers all inflation calculations
 
 ### Forecast
 Short-term inflation projections (1 to 3 months ahead) are included for each spending category. 
