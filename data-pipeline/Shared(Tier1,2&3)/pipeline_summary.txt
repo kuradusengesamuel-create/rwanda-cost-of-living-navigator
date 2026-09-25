@@ -1,0 +1,60 @@
+
+RWANDA COST-OF-LIVING INTELLIGENCE PLATFORM
+Data Pipeline Completion Summary
+Generated: 2026-09-25 12:12
+
+DATASET 1 — NISR CPI
+
+Source      : CPI_time_series_August 2026.xls
+Sheet used  : All Rwanda
+Date range  : February 2009 to August 2026
+Categories  : 12 main COICOP categories + 6 sub-items
+Latest month: August 2026
+
+Key findings (August 2026):
+  General inflation (YoY)  : 15.9%
+  Highest category         : Transport +27.5%
+  Second highest           : Communication +27.6%
+  Biggest basket category  : Food (39%) at +16.7%
+  Most stable              : Health +2.7%
+
+
+DATASET 2 — NISR EICV7 (2023-2024)
+
+Source      : CS_S01_S5_S7_Household.dta (and S8A1, S8A2, S8A3, S8B)
+Households  : 15,054 surveyed
+Districts   : All 30 districts of Rwanda
+Files used  : 5 EICV7 files
+
+Poverty breakdown:
+  Non Poor        : 11,476 households (76.2%)
+  Moderately Poor :  2,951 households (19.6%)
+  Severely Poor   :    627 households  (4.2%)
+
+Urban/Rural split:
+  Rural : 11,060 households (73.4%)
+  Urban :  3,994 households (26.6%)
+
+
+DISTRICT PRESSURE INDEX — KEY RESULTS
+
+Highest pressure: Nyaruguru Urban    21.1% (High risk)
+Lowest pressure : Nyamasheke Urban   10.0% (Medium risk)
+National average: 15.9%
+Districts at High risk   : 14
+Districts at Medium risk : 46
+Districts at Lower risk  :  0
+
+
+FILES SAVED
+
+processed/cpi_clean_long.csv          Full CPI history
+processed/cpi_latest_month.csv        August 2026 CPI
+processed/basket_weights.csv          National basket weights
+checkpoints/households.csv            EICV7 households
+checkpoints/spending_nonfood_combined.csv  Non-food spending
+checkpoints/spending_food.csv         Food spending
+checkpoints/master_spending.csv       Combined spending
+checkpoints/district_basket_weights.csv   District weights
+checkpoints/district_pressure_index.csv   Pressure index
+
