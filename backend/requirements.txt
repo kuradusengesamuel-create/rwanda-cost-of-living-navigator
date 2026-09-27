@@ -1,0 +1,22 @@
+# ============================================================
+# REQUIREMENTS — Rwanda Cost-of-Living Navigator Backend
+# These are all the Python packages the backend needs to run
+# Install them with: pip install -r requirements.txt
+# ============================================================
+
+# Web framework: creates the API that the frontend talks to fastapi==0.104.1
+
+# Server: runs the FastAPI application uvicorn==0.24.0
+
+# Data handling: reads our CSV and JSON processed files
+pandas==2.1.3
+numpy==1.26.2
+
+# File path handling: python-multipart==0.0.6
+
+# Environment variables: keeps sensitive settings out of code
+python-dotenv==1.0.0
+
+# Cross-Origin Resource Sharing, allows frontend to talk to backend
+# even when they are hosted on different servers
+fastapi-cors==0.0.6
