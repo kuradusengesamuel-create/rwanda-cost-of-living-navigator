@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    index.html — Rwanda Cost-of-Living Navigator
+    Main landing page — the first thing users see
+   
+    This page:
+    - Welcomes the user
+    - Explains what the platform does in plain language
+    - Lets them choose which tier to enter
+    - Works on any phone or slow internet connection
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rwanda Cost-of-Living Navigator</title>
+
+  <!-- Our main stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Favicon — Rwanda flag colors -->
+  <link rel="icon" href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <text y='.9em' font-size='90'>🇷🇼</text>
+    </svg>"
+  />
+</head>
+
+<body>
+
+  <!-- HEADER — Platform name and language toggle -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <!-- Platform logo and name -->
+      <div class="brand">
+        <span class="brand-flag">🇷🇼</span>
+        <div class="brand-text">
+          <h1 class="brand-name" id="brand-name">
+            Rwanda Cost-of-Living Navigator
+          </h1>
+          <p class="brand-tagline" id="brand-tagline">
+            Powered by official NISR data
+          </p>
+        </div>
+      </div>
+
+      <!-- Language toggle — English / Kinyarwanda -->
+      <button
+        class="lang-toggle"
+        id="lang-toggle"
+        onclick="toggleLanguage()"
+        aria-label="Toggle language"
+      >
+        <span id="lang-label">EN | RW</span>
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       HERO SECTION — The core message
+       ============================================================ -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <div class="hero-badge" id="hero-badge">
+        August 2026 — Latest NISR Data
+      </div>
+
+      <h2 class="hero-title" id="hero-title">
+        How much is inflation really costing <em>you</em> this month?
+      </h2>
+
+      <p class="hero-subtitle" id="hero-subtitle">
+        Rwanda's inflation is at 15.9% — but that number is the
+        national average. Your real inflation depends on what
+        <em>you</em> actually spend money on.
+      </p>
+
+      <a href="personal.html" class="hero-cta" id="hero-cta">
+        Calculate my personal inflation →
+      </a>
+
+      <p class="hero-note" id="hero-note">
+        Free · No registration · No data stored
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       INFLATION ALERT BAR — Current headline figures
+       ============================================================ -->
+  <section class="alert-bar">
+    <div class="alert-inner">
+      <span class="alert-item alert-high" id="alert-general">
+        📊 General inflation: <strong>15.9%</strong>
+      </span>
+      <span class="alert-item alert-high" id="alert-transport">
+        🚌 Transport: <strong>+27.5%</strong>
+      </span>
+      <span class="alert-item alert-high" id="alert-food">
+        🥗 Food: <strong>+16.7%</strong>
+      </span>
+      <span class="alert-item alert-high" id="alert-housing">
+        🏠 Housing: <strong>+19.9%</strong>
+      </span>
+      <span class="alert-item alert-low" id="alert-health">
+        💊 Health: <strong>+2.7%</strong>
+      </span>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       THREE TIERS — Choose your tool
+       ============================================================ -->
+  <section class="tiers">
+    <div class="tiers-inner">
+
+      <h2 class="section-title" id="tiers-title">
+        Choose your tool
+      </h2>
+
+      <!-- Tier 1 — Personal -->
+      <a href="personal.html" class="tier-card tier-personal">
+        <div class="tier-icon">👤</div>
+        <div class="tier-content">
+          <h3 class="tier-name" id="tier1-name">
+            Personal
+          </h3>
+          <p class="tier-desc" id="tier1-desc">
+            Enter your income and expenses — see your real
+            inflation rate, biggest pressures, and practical
+            tips to save money this month.
+          </p>
+          <span class="tier-link" id="tier1-link">
+            Open personal tool →
+          </span>
+        </div>
+      </a>
+
+      <!-- Tier 2 — Business -->
+      <a href="business.html" class="tier-card tier-business">
+        <div class="tier-icon">🏪</div>
+        <div class="tier-content">
+          <h3 class="tier-name" id="tier2-name">
+            Business
+          </h3>
+          <p class="tier-desc" id="tier2-desc">
+            Track cost pressure across all categories, plan
+            your budget, and see a 3-month forecast for your
+            biggest operating costs.
+          </p>
+          <span class="tier-link" id="tier2-link">
+            Open business tool →
+          </span>
+        </div>
+      </a>
+
+      <!-- Tier 3 — Government -->
+      <a href="government.html" class="tier-card tier-government">
+        <div class="tier-icon">🏛️</div>
+        <div class="tier-content">
+          <h3 class="tier-name" id="tier3-name">
+            Government & Policy
+          </h3>
+          <p class="tier-desc" id="tier3-desc">
+            District-level pressure index across all 30 districts,
+            income group vulnerability scores, and early warning
+            flags for policy intervention.
+          </p>
+          <span class="tier-link" id="tier3-link">
+            Open government dashboard →
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       DATA SOURCE SECTION — Build trust with users
+       ============================================================ -->
+  <section class="data-source">
+    <div class="data-source-inner">
+
+      <h2 class="section-title" id="data-title">
+        Built on official data
+      </h2>
+
+      <div class="source-cards">
+
+        <div class="source-card">
+          <div class="source-icon">📈</div>
+          <h3 id="source1-title">NISR CPI</h3>
+          <p id="source1-desc">
+            Monthly Consumer Price Index published by the
+            National Institute of Statistics of Rwanda.
+            Updated every month automatically.
+          </p>
+        </div>
+
+        <div class="source-card">
+          <div class="source-icon">🏘️</div>
+          <h3 id="source2-title">NISR EICV7</h3>
+          <p id="source2-desc">
+            2023-2024 Integrated Household Living Conditions
+            Survey — 15,054 households across all 30 districts
+            of Rwanda.
+          </p>
+        </div>
+
+        <div class="source-card">
+          <div class="source-icon">🤖</div>
+          <h3 id="source3-title">Claude AI</h3>
+          <p id="source3-desc">
+            Personalized advice generated by Anthropic's Claude
+            AI — in English and Kinyarwanda. Your data is never
+            stored.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PRIVACY NOTE — Reassure users
+       ============================================================ -->
+  <section class="privacy-note">
+    <div class="privacy-inner">
+      <span class="privacy-icon">🔒</span>
+      <p id="privacy-text">
+        <strong>Your privacy is protected.</strong>
+        This platform calculates results in real time and
+        never stores your personal spending information.
+        No account required. No data collected.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <p class="footer-data" id="footer-data">
+        Data: NISR Consumer Price Index · August 2026 ·
+        NISR EICV7 2023-2024
+      </p>
+
+      <p class="footer-disclaimer" id="footer-disclaimer">
+        ⚠ District pressure scores and forecasts are model
+        estimates — not official NISR figures.
+        All inflation rates are sourced directly from NISR.
+      </p>
+
+      <p class="footer-credit">
+        Built for the NISR 2026 Big Data Hackathon ·
+        Track 2: Financial Inclusion & Poverty Reduction
+      </p>
+
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script src="js/language.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
