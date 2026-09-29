@@ -1,0 +1,515 @@
+/* ============================================================
+   style.css — Rwanda Cost-of-Living Navigator
+   ============================================================
+   This file controls how the entire platform looks.
+   It is organized in sections — one per component.
+
+   Design principles:
+   - Mobile first — looks great on a phone before a desktop
+   - Fast loading — no heavy animations or images
+   - High contrast — readable in bright sunlight outdoors
+   - Rwanda colors — blue, green, yellow from the flag
+   ============================================================ */
+
+
+/* ============================================================
+   1. CSS VARIABLES — colors, fonts, spacing defined once
+      Change a value here and it updates everywhere
+   ============================================================ */
+:root {
+  /* Rwanda-inspired color palette */
+  --color-blue        : #0066CC;   /* Rwanda flag blue */
+  --color-blue-dark   : #004499;
+  --color-blue-light  : #E6F0FF;
+  --color-green       : #20B257;   /* Rwanda flag green */
+  --color-green-dark  : #158A42;
+  --color-green-light : #E6F7ED;
+  --color-yellow      : #F5A623;   /* Rwanda flag yellow */
+  --color-yellow-light: #FFF3E0;
+
+  /* Semantic colors */
+  --color-danger      : #D93025;   /* High pressure / rising */
+  --color-danger-light: #FDECEA;
+  --color-warning     : #F5A623;   /* Medium pressure */
+  --color-warning-light:#FFF3E0;
+  --color-success     : #20B257;   /* Lower pressure / stable */
+  --color-success-light:#E6F7ED;
+
+  /* Neutral colors */
+  --color-white       : #FFFFFF;
+  --color-bg          : #F8F9FA;
+  --color-surface     : #FFFFFF;
+  --color-border      : #E0E0E0;
+  --color-text        : #1A1A2E;
+  --color-text-muted  : #6B7280;
+  --color-text-light  : #9CA3AF;
+
+  /* Typography */
+  --font-main         : 'Segoe UI', Arial, sans-serif;
+  --font-size-xs      : 0.75rem;   /* 12px */
+  --font-size-sm      : 0.875rem;  /* 14px */
+  --font-size-md      : 1rem;      /* 16px */
+  --font-size-lg      : 1.125rem;  /* 18px */
+  --font-size-xl      : 1.25rem;   /* 20px */
+  --font-size-2xl     : 1.5rem;    /* 24px */
+  --font-size-3xl     : 1.875rem;  /* 30px */
+
+  /* Spacing */
+  --space-xs          : 0.25rem;   /* 4px */
+  --space-sm          : 0.5rem;    /* 8px */
+  --space-md          : 1rem;      /* 16px */
+  --space-lg          : 1.5rem;    /* 24px */
+  --space-xl          : 2rem;      /* 32px */
+  --space-2xl         : 3rem;      /* 48px */
+
+  /* Layout */
+  --max-width         : 800px;
+  --border-radius     : 8px;
+  --border-radius-lg  : 16px;
+  --shadow-sm         : 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md         : 0 4px 12px rgba(0,0,0,0.1);
+}
+
+
+/* ============================================================
+   2. RESET — remove browser default styles
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing  : border-box;
+  margin      : 0;
+  padding     : 0;
+}
+
+html {
+  font-size   : 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family : var(--font-main);
+  font-size   : var(--font-size-md);
+  color       : var(--color-text);
+  background  : var(--color-bg);
+  line-height : 1.6;
+  min-height  : 100vh;
+}
+
+a {
+  color           : var(--color-blue);
+  text-decoration : none;
+}
+
+a:hover {
+  text-decoration : underline;
+}
+
+img {
+  max-width : 100%;
+  height    : auto;
+}
+
+button {
+  cursor      : pointer;
+  font-family : var(--font-main);
+  font-size   : var(--font-size-md);
+}
+
+
+/* ============================================================
+   3. LAYOUT HELPERS — reusable containers
+   ============================================================ */
+.container {
+  max-width : var(--max-width);
+  margin    : 0 auto;
+  padding   : 0 var(--space-md);
+}
+
+.section {
+  padding : var(--space-2xl) var(--space-md);
+}
+
+.section-title {
+  font-size     : var(--font-size-2xl);
+  font-weight   : 700;
+  color         : var(--color-text);
+  margin-bottom : var(--space-lg);
+  text-align    : center;
+}
+
+
+/* ============================================================
+   4. HEADER
+   ============================================================ */
+.site-header {
+  background    : var(--color-blue);
+  color         : var(--color-white);
+  padding       : var(--space-md);
+  position      : sticky;
+  top           : 0;
+  z-index       : 100;
+  box-shadow    : var(--shadow-md);
+}
+
+.header-inner {
+  max-width       : var(--max-width);
+  margin          : 0 auto;
+  display         : flex;
+  align-items     : center;
+  justify-content : space-between;
+  gap             : var(--space-md);
+}
+
+.brand {
+  display     : flex;
+  align-items : center;
+  gap         : var(--space-sm);
+}
+
+.brand-flag {
+  font-size : 2rem;
+}
+
+.brand-name {
+  font-size   : var(--font-size-lg);
+  font-weight : 700;
+  color       : var(--color-white);
+  line-height : 1.2;
+}
+
+.brand-tagline {
+  font-size : var(--font-size-xs);
+  color     : rgba(255,255,255,0.8);
+  margin-top: 2px;
+}
+
+.lang-toggle {
+  background    : rgba(255,255,255,0.15);
+  border        : 1px solid rgba(255,255,255,0.4);
+  color         : var(--color-white);
+  padding       : var(--space-xs) var(--space-sm);
+  border-radius : var(--border-radius);
+  font-size     : var(--font-size-sm);
+  font-weight   : 600;
+  white-space   : nowrap;
+  transition    : background 0.2s;
+}
+
+.lang-toggle:hover {
+  background : rgba(255,255,255,0.25);
+}
+
+
+/* ============================================================
+   5. HERO SECTION
+   ============================================================ */
+.hero {
+  background    : linear-gradient(135deg,
+                  var(--color-blue) 0%,
+                  var(--color-blue-dark) 100%);
+  color         : var(--color-white);
+  padding       : var(--space-2xl) var(--space-md);
+  text-align    : center;
+}
+
+.hero-inner {
+  max-width : var(--max-width);
+  margin    : 0 auto;
+}
+
+.hero-badge {
+  display       : inline-block;
+  background    : rgba(255,255,255,0.15);
+  border        : 1px solid rgba(255,255,255,0.3);
+  color         : var(--color-white);
+  padding       : var(--space-xs) var(--space-md);
+  border-radius : 20px;
+  font-size     : var(--font-size-sm);
+  margin-bottom : var(--space-lg);
+}
+
+.hero-title {
+  font-size     : var(--font-size-3xl);
+  font-weight   : 700;
+  line-height   : 1.3;
+  margin-bottom : var(--space-md);
+}
+
+.hero-title em {
+  font-style  : normal;
+  color       : var(--color-yellow);
+}
+
+.hero-subtitle {
+  font-size     : var(--font-size-lg);
+  color         : rgba(255,255,255,0.85);
+  max-width     : 600px;
+  margin        : 0 auto var(--space-xl);
+  line-height   : 1.7;
+}
+
+.hero-subtitle em {
+  font-style  : normal;
+  font-weight : 600;
+  color       : var(--color-white);
+}
+
+.hero-cta {
+  display       : inline-block;
+  background    : var(--color-yellow);
+  color         : var(--color-text);
+  font-size     : var(--font-size-lg);
+  font-weight   : 700;
+  padding       : var(--space-md) var(--space-xl);
+  border-radius : var(--border-radius-lg);
+  text-decoration: none;
+  transition    : transform 0.2s, box-shadow 0.2s;
+  box-shadow    : var(--shadow-md);
+}
+
+.hero-cta:hover {
+  transform     : translateY(-2px);
+  box-shadow    : 0 6px 20px rgba(0,0,0,0.2);
+  text-decoration: none;
+}
+
+.hero-note {
+  margin-top  : var(--space-md);
+  font-size   : var(--font-size-sm);
+  color       : rgba(255,255,255,0.65);
+}
+
+
+/* ============================================================
+   6. ALERT BAR — inflation headline figures
+   ============================================================ */
+.alert-bar {
+  background  : var(--color-text);
+  padding     : var(--space-sm) var(--space-md);
+  overflow-x  : auto;
+}
+
+.alert-inner {
+  max-width       : var(--max-width);
+  margin          : 0 auto;
+  display         : flex;
+  gap             : var(--space-lg);
+  align-items     : center;
+  justify-content : center;
+  flex-wrap       : wrap;
+}
+
+.alert-item {
+  font-size   : var(--font-size-sm);
+  white-space : nowrap;
+  color       : rgba(255,255,255,0.8);
+}
+
+.alert-item strong {
+  color : var(--color-white);
+}
+
+.alert-high strong {
+  color : #FF6B6B;
+}
+
+.alert-low strong {
+  color : #6BCB77;
+}
+
+
+/* ============================================================
+   7. TIER CARDS — the three tool choices
+   ============================================================ */
+.tiers {
+  padding : var(--space-2xl) var(--space-md);
+}
+
+.tiers-inner {
+  max-width : var(--max-width);
+  margin    : 0 auto;
+}
+
+.tier-card {
+  display         : flex;
+  align-items     : flex-start;
+  gap             : var(--space-md);
+  background      : var(--color-surface);
+  border          : 2px solid var(--color-border);
+  border-radius   : var(--border-radius-lg);
+  padding         : var(--space-lg);
+  margin-bottom   : var(--space-md);
+  text-decoration : none;
+  color           : var(--color-text);
+  transition      : border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor          : pointer;
+}
+
+.tier-card:hover {
+  transform       : translateY(-3px);
+  box-shadow      : var(--shadow-md);
+  text-decoration : none;
+  color           : var(--color-text);
+}
+
+.tier-personal:hover { border-color: var(--color-blue); }
+.tier-business:hover { border-color: var(--color-green); }
+.tier-government:hover { border-color: var(--color-yellow); }
+
+.tier-icon {
+  font-size   : 2.5rem;
+  flex-shrink : 0;
+  line-height : 1;
+}
+
+.tier-name {
+  font-size     : var(--font-size-xl);
+  font-weight   : 700;
+  margin-bottom : var(--space-xs);
+}
+
+.tier-personal .tier-name  { color: var(--color-blue); }
+.tier-business .tier-name  { color: var(--color-green); }
+.tier-government .tier-name{ color: var(--color-yellow); }
+
+.tier-desc {
+  font-size     : var(--font-size-sm);
+  color         : var(--color-text-muted);
+  margin-bottom : var(--space-sm);
+  line-height   : 1.6;
+}
+
+.tier-link {
+  font-size   : var(--font-size-sm);
+  font-weight : 600;
+  color       : var(--color-blue);
+}
+
+
+/* ============================================================
+   8. DATA SOURCE SECTION
+   ============================================================ */
+.data-source {
+  background : var(--color-blue-light);
+  padding    : var(--space-2xl) var(--space-md);
+}
+
+.data-source-inner {
+  max-width : var(--max-width);
+  margin    : 0 auto;
+}
+
+.source-cards {
+  display               : grid;
+  grid-template-columns : repeat(auto-fit, minmax(220px, 1fr));
+  gap                   : var(--space-md);
+  margin-top            : var(--space-lg);
+}
+
+.source-card {
+  background    : var(--color-surface);
+  border-radius : var(--border-radius-lg);
+  padding       : var(--space-lg);
+  text-align    : center;
+  box-shadow    : var(--shadow-sm);
+}
+
+.source-icon {
+  font-size     : 2rem;
+  margin-bottom : var(--space-sm);
+}
+
+.source-card h3 {
+  font-size     : var(--font-size-lg);
+  font-weight   : 700;
+  color         : var(--color-blue);
+  margin-bottom : var(--space-sm);
+}
+
+.source-card p {
+  font-size : var(--font-size-sm);
+  color     : var(--color-text-muted);
+}
+
+
+/* ============================================================
+   9. PRIVACY NOTE
+   ============================================================ */
+.privacy-note {
+  background : var(--color-green-light);
+  border-top : 3px solid var(--color-green);
+  padding    : var(--space-md) var(--space-lg);
+}
+
+.privacy-inner {
+  max-width       : var(--max-width);
+  margin          : 0 auto;
+  display         : flex;
+  align-items     : center;
+  gap             : var(--space-md);
+}
+
+.privacy-icon {
+  font-size   : 1.5rem;
+  flex-shrink : 0;
+}
+
+.privacy-note p {
+  font-size : var(--font-size-sm);
+  color     : var(--color-text);
+}
+
+
+/* ============================================================
+   10. FOOTER
+   ============================================================ */
+.site-footer {
+  background : var(--color-text);
+  color      : rgba(255,255,255,0.7);
+  padding    : var(--space-xl) var(--space-md);
+  text-align : center;
+}
+
+.footer-inner {
+  max-width : var(--max-width);
+  margin    : 0 auto;
+}
+
+.footer-data {
+  font-size     : var(--font-size-sm);
+  margin-bottom : var(--space-sm);
+  color         : rgba(255,255,255,0.9);
+}
+
+.footer-disclaimer {
+  font-size     : var(--font-size-xs);
+  margin-bottom : var(--space-sm);
+  color         : rgba(255,255,255,0.6);
+  font-style    : italic;
+}
+
+.footer-credit {
+  font-size : var(--font-size-xs);
+  color     : rgba(255,255,255,0.5);
+}
+
+
+/* ============================================================
+   11. SHARED COMPONENTS — used across all pages
+   ============================================================ */
+
+/* Metric card — shows a big number with a label */
+.metric-card {
+  background    : var(--color-surface);
+  border        : 1px solid var(--color-border);
+  border-radius : var(--border-radius-lg);
+  padding       : var(--space-md) var(--space-lg);
+  text-align    : center;
+}
+
+.metric-label {
+  font-size     : var(--font-size-sm);
+  color         : var(--color-text-muted);
+  margin-bottom : var(--space-xs);
+}
+
+.metric-value {
