@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ============================================================
+    business.html — Tier 2: Business Cost Intelligence
+    Rwanda Cost-of-Living Navigator
+    ============================================================
+    This page gives small business owners and HR teams:
+    - Cost pressure ranking by category
+    - 3-month cost forecast
+    - What changed this month
+    - Wage review signal
+    - WhatsApp share button
+    ============================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0"/>
+  <title>Business — Rwanda CLNP</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-flag">🇷🇼</span>
+        <div class="brand-text">
+          <h1 class="brand-name" id="brand-name">
+            Rwanda Cost-of-Living Navigator
+          </h1>
+          <p class="brand-tagline" id="brand-tagline">
+            Powered by official NISR data
+          </p>
+        </div>
+      </div>
+      <button class="lang-toggle" id="lang-toggle"
+              onclick="toggleLanguage()">
+        <span id="lang-label">EN | RW</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Page navigation ── -->
+  <nav class="page-nav">
+    <div class="page-nav-inner">
+      <a href="index.html" class="back-link">← Back</a>
+      <span class="page-title" id="business-title">
+        Business Cost Intelligence
+      </span>
+    </div>
+  </nav>
+
+  <!-- ── Main content ── -->
+  <main style="max-width:800px; margin:0 auto;
+               padding:1.5rem 1rem 3rem;">
+
+    <!-- ── Intro ── -->
+    <div style="background:#E6F7ED; border-radius:12px;
+                padding:1rem; margin-bottom:1.5rem;
+                border-left:4px solid #20B257;">
+      <p style="font-size:0.875rem; color:#1A1A2E;">
+        🏪 <strong>For business owners and HR teams.</strong>
+        See which costs are rising fastest, plan your budget,
+        and get an objective reference for wage reviews.
+        All data from NISR — August 2026.
+      </p>
+    </div>
+
+    <!-- ── Section 1: Cost pressure ── -->
+    <div class="card">
+      <h2 class="card-title" id="cost-pressure">
+        📊 Cost pressure by category
+      </h2>
+      <div id="cost-pressure-content">
+        <div class="loading">
+          <div class="spinner"></div>
+          <span>Loading cost data...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 2: What changed ── -->
+    <div class="card">
+      <h2 class="card-title" id="what-changed">
+        What changed this month?
+      </h2>
+      <div id="what-changed-business">
+        <div class="loading">
+          <div class="spinner"></div>
+          <span>Loading...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 3: Forecast ── -->
+    <div class="card">
+      <h2 class="card-title" id="forecast-business">
+        📅 3-month cost forecast
+      </h2>
+      <div id="forecast-business-content">
+        <div class="loading">
+          <div class="spinner"></div>
+          <span>Loading forecast...</span>
+        </div>
+      </div>
+      <div class="estimate-note">
+        ⚠ Model estimates only — not official NISR figures.
+        See confidence range for uncertainty band.
+      </div>
+    </div>
+
+    <!-- ── Section 4: Wage signal ── -->
+    <div class="card">
+      <h2 class="card-title" id="wage-signal">
+        💼 Wage review signal
+      </h2>
+      <div id="wage-signal-content">
+        <div class="loading">
+          <div class="spinner"></div>
+          <span>Loading wage signal...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Share button ── -->
+    <button class="btn btn-whatsapp"
+            onclick="shareBusinessSummary()">
+      📲 Share cost summary on WhatsApp
+    </button>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-data" id="footer-data">
+        Data: NISR Consumer Price Index · August 2026
+      </p>
+      <p class="footer-disclaimer" id="footer-disclaimer">
+        ⚠ Forecasts are model estimates — not official NISR
+        figures. All current inflation rates are from NISR.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ── Scripts ── -->
+  <script src="js/language.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/business.js"></script>
+
+</body>
+</html>
