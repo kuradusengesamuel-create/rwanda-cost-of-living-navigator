@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    ============================================================
+    personal.html — Tier 1: Personal Inflation Calculator
+    Rwanda Cost-of-Living Navigator
+    ============================================================
+    This is the most important page of the platform.
+    A user enters their monthly spending and gets back:
+    - Their personal inflation rate
+    - Their biggest pressure category
+    - What changed this month
+    - Practical budgeting tips
+    - Profile comparison
+    - Short-term forecast
+    - AI personalized advice
+    - WhatsApp share button
+    ============================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personal Calculator — Rwanda CLNP</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-flag">🇷🇼</span>
+        <div class="brand-text">
+          <h1 class="brand-name" id="brand-name">
+            Rwanda Cost-of-Living Navigator
+          </h1>
+          <p class="brand-tagline" id="brand-tagline">
+            Powered by official NISR data
+          </p>
+        </div>
+      </div>
+      <button class="lang-toggle" id="lang-toggle"
+              onclick="toggleLanguage()">
+        <span id="lang-label">EN | RW</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Page navigation ── -->
+  <nav class="page-nav">
+    <div class="page-nav-inner">
+      <a href="index.html" class="back-link">← Back</a>
+      <span class="page-title" id="personal-title">
+        Personal Inflation Calculator
+      </span>
+    </div>
+  </nav>
+
+  <!-- ── Main content ── -->
+  <main style="max-width:800px; margin:0 auto;
+               padding:1.5rem 1rem 3rem;">
+
+
+    <!-- ============================================================
+         SECTION 1 — SPENDING INPUT FORM
+         ============================================================ -->
+    <div class="card">
+      <h2 class="card-title">
+        💰 <span id="spending-title">
+          Enter your monthly spending (RWF)
+        </span>
+      </h2>
+
+      <form id="spending-form" onsubmit="return false;">
+
+        <!-- Income -->
+        <div class="form-group">
+          <label class="form-label" for="monthly_income"
+                 id="income-label">
+            Monthly income (RWF)
+          </label>
+          <input class="form-input" type="number"
+                 id="monthly_income" name="monthly_income"
+                 placeholder="e.g. 150000" min="0" />
+          <p class="form-hint">
+            Optional — used to show savings vs spending
+          </p>
+        </div>
+
+        <!-- Spending grid — 2 columns on desktop -->
+        <div style="display:grid;
+                    grid-template-columns:repeat(auto-fit,
+                    minmax(240px,1fr)); gap:1rem;">
+
+          <div class="form-group">
+            <label class="form-label" for="food"
+                   id="food-label">Food and groceries</label>
+            <input class="form-input" type="number"
+                   id="food" placeholder="e.g. 55000" min="0"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="housing"
+                   id="housing-label">
+              Rent, electricity, water
+            </label>
+            <input class="form-input" type="number"
+                   id="housing" placeholder="e.g. 40000" min="0"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="transport"
+                   id="transport-label">Transport</label>
+            <input class="form-input" type="number"
+                   id="transport" placeholder="e.g. 20000" min="0"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="health"
+                   id="health-label">Health and medicine</label>
+            <input class="form-input" type="number"
+                   id="health" placeholder="e.g. 10000" min="0"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="education"
+                   id="education-label">Education</label>
+            <input class="form-input" type="number"
+                   id="education" placeholder="e.g. 8000" min="0"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="clothing"
+                   id="clothing-label">
+              Clothing and footwear
+            </label>
+            <input class="form-input" type="number"
+                   id="clothing" placeholder="e.g. 10000" min="0"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="communication"
+                   id="communication-label">
+              Airtime and internet
+            </label>
+            <input class="form-input" type="number"
+                   id="communication" placeholder="e.g. 3000" min="0"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="furnishing"
+                   id="furnishing-label">Household items</label>
+            <input class="form-input" type="number"
+                   id="furnishing" placeholder="e.g. 5000" min="0"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="recreation"
+                   id="recreation-label">Recreation</label>
+            <input class="form-input" type="number"
+                   id="recreation" placeholder="e.g. 2000" min="0"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="restaurants"
+                   id="restaurants-label">Eating out</label>
+            <input class="form-input" type="number"
+                   id="restaurants" placeholder="e.g. 0" min="0"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="miscellaneous"
+                   id="misc-label">
+              Personal care and other
+            </label>
+            <input class="form-input" type="number"
+                   id="miscellaneous" placeholder="e.g. 5000" min="0"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="alcohol_tobacco"
+                   id="alcohol-label">
+              Alcohol and tobacco
+            </label>
+            <input class="form-input" type="number"
+                   id="alcohol_tobacco" placeholder="e.g. 0" min="0"/>
+          </div>
+
+        </div>
+
+        <!-- District selector -->
+        <div class="form-group">
+          <label class="form-label" for="district">
+            Your district (optional)
+          </label>
+          <select class="form-input" id="district">
+            <option value="">Select your district...</option>
+            <option>Bugesera</option><option>Burera</option>
+            <option>Gakenke</option><option>Gasabo</option>
+            <option>Gatsibo</option><option>Gicumbi</option>
+            <option>Gisagara</option><option>Huye</option>
+            <option>Kamonyi</option><option>Karongi</option>
+            <option>Kayonza</option><option>Kicukiro</option>
+            <option>Kirehe</option><option>Muhanga</option>
+            <option>Musanze</option><option>Ngoma</option>
+            <option>Ngororero</option><option>Nyabihu</option>
+            <option>Nyagatare</option><option>Nyamagabe</option>
+            <option>Nyamasheke</option><option>Nyanza</option>
+            <option>Nyarugenge</option><option>Nyaruguru</option>
+            <option>Rubavu</option><option>Ruhango</option>
+            <option>Rulindo</option><option>Rusizi</option>
+            <option>Rutsiro</option><option>Rwamagana</option>
+          </select>
+        </div>
+
+        <!-- Area type -->
+        <div class="form-group">
+          <label class="form-label" for="area_type">
+            Area type (optional)
+          </label>
+          <select class="form-input" id="area_type">
+            <option value="">Select...</option>
+            <option value="Urban">Urban</option>
+            <option value="Rural">Rural</option>
+          </select>
+        </div>
+
+        <!-- Error message area -->
+        <div id="form-error" style="display:none;"
+             class="error-msg"></div>
+
+        <!-- Calculate button -->
+        <button class="btn btn-primary" id="calculate-btn"
+                onclick="calculateInflation()">
+          Calculate my inflation rate
+        </button>
+
+      </form>
+    </div>
+
+
+    <!-- ============================================================
+         SECTION 2 — RESULTS (hidden until calculated)
+         ============================================================ -->
+    <div id="results-section" style="display:none;">
+
+
+      <!-- ── Headline result ── -->
+      <div class="card" id="headline-result">
+        <!-- filled by JavaScript -->
+      </div>
+
+
+      <!-- ── Biggest pressure spotlight ── -->
+      <div class="card" id="pressure-spotlight">
+        <!-- filled by JavaScript -->
+      </div>
+
+
+      <!-- ── Category breakdown ── -->
+      <div class="card">
+        <h3 class="card-title">
+          📊 What is driving your inflation
+        </h3>
+        <div id="category-breakdown">
+          <!-- filled by JavaScript -->
+        </div>
+      </div>
+
+
+      <!-- ── What changed this month ── -->
+      <div class="card">
+        <h3 class="card-title" id="what-changed">
+          What changed this month?
+        </h3>
+        <div id="what-changed-content">
+          <!-- filled by JavaScript -->
+        </div>
+      </div>
+
+
+      <!-- ── Profile comparison ── -->
+      <div class="card">
+        <h3 class="card-title" id="compare-title">
+          How you compare
+        </h3>
+        <div id="profile-comparison">
+          <!-- filled by JavaScript -->
+        </div>
+      </div>
+
+
+      <!-- ── Budgeting tips ── -->
+      <div class="card">
+        <h3 class="card-title" id="tips-title">
+          Practical tips for your situation
+        </h3>
+        <div id="budgeting-tips">
+          <!-- filled by JavaScript -->
+        </div>
+      </div>
+
+
+      <!-- ── Forecast ── -->
+      <div class="card">
+        <h3 class="card-title" id="forecast-title">
+          What to expect next month
+        </h3>
+        <div id="forecast-content">
+          <!-- filled by JavaScript -->
+        </div>
+        <div class="estimate-note" id="estimate-note">
+          ⚠ Model estimate — not a confirmed local price
+        </div>
+      </div>
+
+
+      <!-- ── AI Advice — Level 1 ── -->
+      <div class="card">
+        <h3 class="card-title">🤖 AI Personalized Advice</h3>
+        <p style="font-size:0.875rem; color:#6B7280;
+                  margin-bottom:1rem;">
+          Get advice written specifically for your situation
+          — in English or Kinyarwanda.
+        </p>
+        <button class="btn btn-ai" id="ai-btn"
+                onclick="getAIAdvice()">
+          🤖 Get personalized AI advice
+        </button>
+        <div id="ai-advice-content" style="margin-top:1rem;">
+          <!-- filled by JavaScript after button click -->
+        </div>
+      </div>
+
+
+      <!-- ── Ask a question — Level 2 ── -->
+      <div class="card">
+        <h3 class="card-title">💬 Ask a Question</h3>
+        <div class="form-group">
+          <input class="form-input" type="text"
+                 id="user-question"
+                 placeholder="e.g. Why is my inflation higher than average?" />
+        </div>
+        <button class="btn btn-secondary" id="question-btn"
+                onclick="askQuestion()">
+          💬 Ask a question
+        </button>
+        <div id="question-answer" style="margin-top:1rem;">
+          <!-- filled by JavaScript after button click -->
+        </div>
+      </div>
+
+
+      <!-- ── WhatsApp share ── -->
+      <button class="btn btn-whatsapp" id="share-btn"
+              onclick="handleShare()">
+        📲 Share on WhatsApp
+      </button>
+
+
+    </div>
+    <!-- end results-section -->
+
+
+  </main>
+
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-data" id="footer-data">
+        Data: NISR Consumer Price Index · August 2026 ·
+        NISR EICV7 2023-2024
+      </p>
+      <p class="footer-disclaimer" id="footer-disclaimer">
+        ⚠ All calculations are based on national NISR CPI data.
+        Personal results are estimates based on your spending
+        pattern — not official individual assessments.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ── Scripts ── -->
+  <script src="js/language.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/personal.js"></script>
+
+</body>
+</html>
