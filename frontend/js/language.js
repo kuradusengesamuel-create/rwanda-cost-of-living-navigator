@@ -91,7 +91,7 @@ const translations = {
     "tips-title"      : "Practical tips for your situation",
     "compare-title"   : "How you compare",
     "forecast-title"  : "What to expect next month",
-    "ai-btn"          : "🤖 Get personalized AI advice",
+    "ai-btn"          : "🤖 Get personalized Gemini AI advice",
     "question-btn"    : "💬 Ask a question",
     "share-btn"       : "📲 Share on WhatsApp",
     "estimate-note"   : "⚠ Model estimate — not a confirmed local price",
