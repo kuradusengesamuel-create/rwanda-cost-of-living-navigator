@@ -4,7 +4,7 @@
    ============================================================ */
 
 const CONFIG = {
-  BACKEND_URL: "http://localhost:8000",
+  BACKEND_URL: "https://rwanda-cost-of-living-navigator.onrender.com",
   TIMEOUT_MS: 10000,
   DATA_MONTH: "August 2026",
 };
