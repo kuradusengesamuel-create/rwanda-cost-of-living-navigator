@@ -1,0 +1,17 @@
+# Large raw data files - DO NOT commit
+CLPN.zip
+Datasets/
+*.dta
+*.tmp
+~$*
+backend/temp_repo/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment
+.env
+venv/
+

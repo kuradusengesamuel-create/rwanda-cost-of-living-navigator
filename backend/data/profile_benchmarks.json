@@ -1,0 +1,22 @@
+{
+  "Low income urban": {
+    "inflation_rate": 11.47,
+    "household_count": 775,
+    "note": "derived from EICV7 spending patterns"
+  },
+  "Middle income": {
+    "inflation_rate": 11.95,
+    "household_count": 5939,
+    "note": "derived from EICV7 spending patterns"
+  },
+  "Urban household": {
+    "inflation_rate": 13.08,
+    "household_count": 3957,
+    "note": "derived from EICV7 spending patterns"
+  },
+  "Rural household": {
+    "inflation_rate": 12.07,
+    "household_count": 11055,
+    "note": "derived from EICV7 spending patterns"
+  }
+}
