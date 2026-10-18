@@ -213,7 +213,7 @@ async def call_gemini_api(prompt: str) -> str:
         )
 
     # Build the request URL with API key
-    url = GEMINI_API_URL
+    url = f"{GEMINI_API_URL}?key={api_key}"
 
     # Build the request body — Gemini format
     request_body = {
@@ -235,7 +235,7 @@ async def call_gemini_api(prompt: str) -> str:
             response = await client.post(
                 url,
                 json = request_body,
-                headers = {"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"}
+                headers = {"Content-Type": "application/json"}
             )
 
         if response.status_code != 200:
@@ -381,4 +381,5 @@ def check_ai_health():
             else "AI service not configured — set GEMINI_API_KEY"
         )
     }
+
 
