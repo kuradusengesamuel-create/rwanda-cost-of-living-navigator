@@ -30,7 +30,7 @@ router = APIRouter()
 # Gemini API settings 
 GEMINI_API_URL = (
     "https://generativelanguage.googleapis.com"
-    "/v1beta/models/gemini-3.5-flash-lite:generateContent"
+    "/v1beta/models/gemini-1.5-flash:generateContent"
 )
 MAX_TOKENS = 1000
 
@@ -198,7 +198,7 @@ Data source: NISR Consumer Price Index, {LATEST_DATA_MONTH}.
 async def call_gemini_api(prompt: str) -> str:
     """
     Send a prompt to Google Gemini API and return the response.
-    Uses the free gemini-3.5-flash-lite model.
+    Uses the free gemini-1.5-flash model.
     """
 
     from dotenv import load_dotenv; load_dotenv(); api_key = os.getenv("GEMINI_API_KEY")
@@ -299,7 +299,7 @@ async def get_ai_advice(request: AIAdviceRequest):
         "advice"       : ai_response,
         "language"     : request.language,
         "data_month"   : LATEST_DATA_MONTH,
-        "generated_by" : "Google Gemini AI (gemini-3.5-flash-lite)",
+        "generated_by" : "Google Gemini AI (gemini-1.5-flash)",
         "privacy_note" : (
             "This advice was generated using your spending data. "
             "No personal data was stored."
@@ -344,7 +344,7 @@ async def ask_question(request: AIQuestionRequest):
         "answer"       : ai_response,
         "language"     : request.language,
         "data_month"   : LATEST_DATA_MONTH,
-        "generated_by" : "Google Gemini AI (gemini-3.5-flash-lite)",
+        "generated_by" : "Google Gemini AI (gemini-1.5-flash)",
         "disclaimer"   : (
             "AI-generated answer based on NISR public data. "
             "Not professional financial advice."
@@ -368,7 +368,7 @@ def check_ai_health():
 
     return {
         "ai_service_available" : api_key_configured,
-        "model"                : "gemini-3.5-flash-lite (free tier)",
+        "model"                : "gemini-1.5-flash (free tier)",
         "provider"             : "Google Gemini",
         "levels_available"     : {
             "level_1_personal_advice"    : api_key_configured,

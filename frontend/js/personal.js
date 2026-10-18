@@ -571,7 +571,7 @@ async function getAIAdvice() {
   btn.disabled    = true;
   btn.textContent = "Getting AI advice...";
 
-  showLoading("ai-advice-content", "Claude AI is thinking...");
+  showLoading("ai-advice-content", "Gemini AI is thinking...");
 
   const top = lastResult.breakdown[0];
 
@@ -636,7 +636,7 @@ async function askQuestion() {
   btn.disabled    = true;
   btn.textContent = "Thinking...";
 
-  showLoading("question-answer", "Claude AI is answering...");
+  showLoading("question-answer", "Gemini AI is answering...");
 
   const requestBody = {
     question                : question,
