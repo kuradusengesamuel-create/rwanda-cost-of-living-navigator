@@ -30,7 +30,7 @@ router = APIRouter()
 # Gemini API settings 
 GEMINI_API_URL = (
     "https://generativelanguage.googleapis.com"
-    "/v1beta/models/gemini-2.0-flash-exp:generateContent"
+    "/v1/models/gemini-pro:generateContent"
 )
 MAX_TOKENS = 1000
 
@@ -381,6 +381,7 @@ def check_ai_health():
             else "AI service not configured — set GEMINI_API_KEY"
         )
     }
+
 
 
 
