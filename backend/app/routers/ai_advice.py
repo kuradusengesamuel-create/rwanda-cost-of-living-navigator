@@ -1,4 +1,4 @@
-﻿# ============================================================
+# ============================================================
 # ai_advice.py — AI Advice Router (Groq version)
 # Rwanda Cost-of-Living Navigator
 # ============================================================
@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_MODEL   = "llama3-8b-8192"
+GROQ_MODEL   = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
 MAX_TOKENS   = 1000
 
 class AIAdviceRequest(BaseModel):
@@ -70,21 +70,31 @@ Answer in 2-3 sentences. Be specific and practical. Mention Rwanda-specific opti
 {language_instruction}"""
     return prompt.strip()
 
-async def call_gemini_api(prompt: str) -> str:
-    api_key = os.getenv("GEMINI_API_KEY")
+def get_api_key() -> str:
+    # Prefer GROQ_API_KEY; fall back to the old GEMINI_API_KEY name so the
+    # existing Render setting keeps working.
+    return os.getenv("GROQ_API_KEY") or os.getenv("GEMINI_API_KEY") or ""
+
+async def call_groq_api(prompt: str) -> str:
+    api_key = get_api_key()
     if not api_key:
-        raise HTTPException(status_code=503, detail="AI service not configured — GEMINI_API_KEY not set")
+        raise HTTPException(status_code=503, detail="AI service not configured — GROQ_API_KEY not set")
+    body = {"model": GROQ_MODEL, "messages": [{"role": "user", "content": prompt}], "max_tokens": MAX_TOKENS, "temperature": 0.7}
+    if "gpt-oss" in GROQ_MODEL:
+        body["reasoning_effort"] = "low"  # keeps answers short and fast
     try:
         async with httpx.AsyncClient(timeout=60.0) as client:
             response = await client.post(
                 GROQ_API_URL,
-                json={"model": GROQ_MODEL, "messages": [{"role": "user", "content": prompt}], "max_tokens": MAX_TOKENS, "temperature": 0.7},
+                json=body,
                 headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
             )
         if response.status_code != 200:
             logger.error(f"Groq API error: {response.status_code} — {response.text}")
             raise HTTPException(status_code=503, detail="AI service temporarily unavailable")
         return response.json()["choices"][0]["message"]["content"].strip()
+    except HTTPException:
+        raise
     except httpx.TimeoutException:
         raise HTTPException(status_code=504, detail="AI service timed out — please try again")
     except Exception as e:
@@ -95,8 +105,8 @@ async def call_gemini_api(prompt: str) -> str:
 async def get_ai_advice(request: AIAdviceRequest):
     logger.info(f"AI advice requested — personal rate: {request.personal_inflation_rate}%, language: {request.language}")
     prompt = build_advice_prompt(request)
-    ai_response = await call_gemini_api(prompt)
-    return {"advice": ai_response, "language": request.language, "data_month": LATEST_DATA_MONTH, "generated_by": "Groq AI (llama3-8b-8192)", "privacy_note": "No personal data was stored.", "disclaimer": "AI-generated guidance based on NISR public data. Not professional financial advice."}
+    ai_response = await call_groq_api(prompt)
+    return {"advice": ai_response, "language": request.language, "data_month": LATEST_DATA_MONTH, "generated_by": f"Groq AI ({GROQ_MODEL})", "privacy_note": "No personal data was stored.", "disclaimer": "AI-generated guidance based on NISR public data. Not professional financial advice."}
 
 @router.post("/question")
 async def ask_question(request: AIQuestionRequest):
@@ -104,10 +114,10 @@ async def ask_question(request: AIQuestionRequest):
         raise HTTPException(status_code=400, detail="Please enter a question of at least 5 characters")
     logger.info(f"AI question received — language: {request.language}")
     prompt = build_question_prompt(request)
-    ai_response = await call_gemini_api(prompt)
-    return {"question": request.question, "answer": ai_response, "language": request.language, "data_month": LATEST_DATA_MONTH, "generated_by": "Groq AI (llama3-8b-8192)", "disclaimer": "AI-generated answer based on NISR public data. Not professional financial advice."}
+    ai_response = await call_groq_api(prompt)
+    return {"question": request.question, "answer": ai_response, "language": request.language, "data_month": LATEST_DATA_MONTH, "generated_by": f"Groq AI ({GROQ_MODEL})", "disclaimer": "AI-generated answer based on NISR public data. Not professional financial advice."}
 
 @router.get("/health")
 def check_ai_health():
-    api_key_configured = bool(os.getenv("GEMINI_API_KEY"))
-    return {"ai_service_available": api_key_configured, "model": "llama3-8b-8192 (Groq free tier)", "provider": "Groq", "status": "AI service ready" if api_key_configured else "AI service not configured"}
+    api_key_configured = bool(get_api_key())
+    return {"ai_service_available": api_key_configured, "model": GROQ_MODEL, "provider": "Groq", "status": "AI service ready" if api_key_configured else "AI service not configured"}
