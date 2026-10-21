@@ -50,8 +50,8 @@ QUINTILE_LABELS = {
 # Early warning thresholds 
 # When inflation in a district crosses these levels
 # the platform raises an alert flag
-HIGH_PRESSURE_THRESHOLD   = 14.0  # % — High risk
-MEDIUM_PRESSURE_THRESHOLD = 10.0  # % — Medium risk
+HIGH_PRESSURE_THRESHOLD   = 16.2  # % — High risk (about 0.3 pts above the national rate of 15.9%)
+MEDIUM_PRESSURE_THRESHOLD = 15.7  # % — Medium risk (near the national rate); below this = Lower
 FOOD_ALERT_THRESHOLD      = 15.0  # % — Food-specific alert
 TRANSPORT_ALERT_THRESHOLD = 25.0  # % — Transport-specific alert
 
