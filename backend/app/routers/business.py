@@ -204,8 +204,9 @@ def get_forecast(category: Optional[str] = None):
             "November 2026"
         ],
         "method"          : (
-            "Weighted moving average of last 6 months "
-            "of month-on-month changes"
+            "Median of the last 6 months of month-on-month changes, "
+            "tapered 5% (month 2) and 10% (month 3); range = +/-1.5 "
+            "standard deviations. Backtested on 36 past months."
         ),
         "forecasts"       : result,
         "warning"         : (
