@@ -100,7 +100,7 @@ https://www.statistics.gov.rw/statistical-publications/subject/consumer-price-in
 
 EICV7 Household Survey
 
-https://www.statistics.gov.rw/survey/integrated-household-living-conditions-survey-eicv7
+https://microdata.statistics.gov.rw/index.php/catalog/119/get_microdata
 
 Processed data files are in `backend/data/`. The full pipeline is in `codes/data_Pipeline/Collab_Notebook/`.
 
