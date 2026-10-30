@@ -41,10 +41,10 @@ The Rwanda Cost-of-Living Navigator transforms official NISR statistics (CPI + E
 
 | Tier | Built for | Question it answers |
 |------|-----------|-------------------|
-| 🏠 Personal | Households | "What is my inflation rate, and which spending category is hurting me most?" |
-| 🏪 Business | Small business owners | "Which costs are rising fastest, and what should I plan for?" |
-| 🏛️ Government | Policy analysts, social-protection teams | "Which districts and income groups face the most cost-of-living pressure?" |
-| 🔮 Forecast | All of the above | "What are prices likely to do in the next 1–3 months?" |
+| 🏠 Personal | Households | What is my inflation rate, and which spending category is hurting me most? |
+| 🏪 Business | Small business owners | Which costs are rising fastest, and what should I plan for? |
+| 🏛️ Government | Policy analysts, social-protection teams | Which districts and income groups face the most cost-of-living pressure? |
+| 🔮 Forecast | All of the above | What are prices likely to do in the next 1–3 months? |
 
 Extra features: AI advice in English and Kinyarwanda, early-warning flags, comparison with typical household profiles, and a WhatsApp share button. No login is needed.
 
