@@ -105,15 +105,25 @@ Processed data files are in `backend/data/`. The full pipeline is in `codes/data
 ## Repository Structure
 
 rwanda-cost-of-living-navigator/
+
 ├── frontend/ Static site ← HTML/CSS/JS(GitHub Pages): index, personal, business, government pages,
+
 │ EN/RW language toggle
+
 ├── backend/
+
 │ ├── app/ FastAPI app: main.py, config.py, models.py,
+
 │ │ └── routers/ personal.py · business.py · government.py · ai_advice.py
+
 │ └── data/ Processed CSV/JSON files the API serves
+
 ├── codes/ Data pipeline notebook and exploration script
+
 ├── demo/ Demo video (3-minute screen recording)
+
 ├── student_cards/ Eligibility documents for both members
+
 └── README.md
 
 ---
