@@ -163,7 +163,7 @@ This submission is our own original work, has not been submitted to any other co
 | Name | Role |
 |------|------|
 | Marie Diane Habiyaremye | Frontend, AI integration, deployment |
-| Samuel KURADUSENGE | Data pipeline, backend API, analysis (Team leader)|
+| Samuel KURADUSENGE | Data pipeline, backend API, analysis|
 
 **Department:** African Centre of Excellence in Data Science (ACE-DS), University of Rwanda
 
