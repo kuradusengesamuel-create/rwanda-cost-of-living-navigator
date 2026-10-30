@@ -92,12 +92,15 @@ An integrated **AI Chat** (powered by Groq/Llama3) provides personalised cost-sa
 
 
 ## Data Sources
-
+## NISR Official Statistics
 
 Consumer Price Index (CPI)
-[NISR Official Statistics](https://www.statistics.gov.rw/statistical-publications/subject/consumer-price-index)
+
+https://www.statistics.gov.rw/statistical-publications/subject/consumer-price-index
+
 EICV7 Household Survey
-[NISR EICV7](https://www.statistics.gov.rw/survey/integrated-household-living-conditions-survey-eicv7)
+
+https://www.statistics.gov.rw/survey/integrated-household-living-conditions-survey-eicv7
 
 Processed data files are in `backend/data/`. The full pipeline is in `codes/data_Pipeline/Collab_Notebook/`.
 
