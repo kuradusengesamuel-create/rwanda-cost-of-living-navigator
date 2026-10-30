@@ -3,11 +3,12 @@
 *"NISR says inflation is 15.9%. But what is it doing to **my** household?"*
 >This platform turns official statistics into an answer you can act on.
 
-**NISR 2026 Big Data Hackathon — Track 2**  
+**NISR 2026 Big Data Hackathon**
+**Track 2:** Financial Inclusion & Poverty Reduction
 **Team:** CostNav RW  
 **Members:** Marie Diane Habiyaremye · Samuel KURADUSENGE  
 
----
+*---*
 
 ## What This Tool Does
 
