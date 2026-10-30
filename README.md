@@ -96,7 +96,7 @@ An integrated **AI Chat** (powered by Groq/Llama3) provides personalised cost-sa
 
 Consumer Price Index (CPI)
 
-https://www.statistics.gov.rw/statistical-publications/subject/consumer-price-index
+https://statistics.gov.rw/statistical-publications/price-indices-cpi-ppi/consumer-price-index-cpi-august-2026
 
 EICV7 Household Survey
 
